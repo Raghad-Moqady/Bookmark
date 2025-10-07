@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+  <body>
+    <section>
+      <h1 class="text-center pt-4">Bookmark</h1>
+      <form class="m-auto w-50 myForm">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control rounded-0"
+            id="siteName"
+            placeholder=""
+          />
+          <label for="siteName">Site Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control rounded-0"
+            id="siteURL"
+            placeholder=""
+          />
+          <label for="siteURL">Site URL</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control rounded-0"
+            id="userEmail"
+            placeholder=""
+          />
+          <label for="userEmail">User Email</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="password"
+            class="form-control rounded-0"
+            id="userPassword"
+            placeholder=""
+          />
+          <label for="userPassword">User Password</label>
+        </div>
+        <button type="submit" class="btn btn-success rounded-0">Add</button>
+        <button type="reset" class="btn btn-danger rounded-0">Reset All</button>
+      </form>
+    </section>
+    <section>
+      <h2 class="text-center pt-4">Added Information</h2>
+      <table class="table m-auto w-75">
+        <thead>
+          <tr class="text-center">
+            <!-- <th scope="col">#</th> -->
+            <th scope="col">Site Name</th>
+            <th scope="col">Site URL</th>
+            <th scope="col">User Email</th>
+            <th scope="col">User Password</th>
+
+          </tr>
+        </thead>
+        <tbody class="tableInfo">
+       
+        </tbody>
+      </table>
+    </section>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

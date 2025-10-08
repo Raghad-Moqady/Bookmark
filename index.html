@@ -19,7 +19,7 @@
         <div class="form-floating mb-3">
           <input
             type="text"
-            class="form-control rounded-0"
+            class="form-control rounded-5"
             id="siteName"
             placeholder=""
           />
@@ -28,7 +28,7 @@
         <div class="form-floating mb-3">
           <input
             type="text"
-            class="form-control rounded-0"
+            class="form-control rounded-5"
             id="siteURL"
             placeholder=""
           />
@@ -37,7 +37,7 @@
         <div class="form-floating mb-3">
           <input
             type="email"
-            class="form-control rounded-0"
+            class="form-control rounded-5"
             id="userEmail"
             placeholder=""
           />
@@ -46,27 +46,37 @@
         <div class="form-floating mb-3">
           <input
             type="password"
-            class="form-control rounded-0"
+            class="form-control rounded-5"
             id="userPassword"
             placeholder=""
           />
           <label for="userPassword">User Password</label>
         </div>
-        <button type="submit" class="btn btn-success rounded-0">Add</button>
-        <button type="reset" class="btn btn-danger rounded-0">Reset All</button>
+        <div class="form-floating mb-3">
+          <input
+           hidden
+           class="hiddenInput"
+          />
+         </div>
+        <button type="submit" class="btn btn-success rounded-5 px-4 add_btn" >Add</button>
+        <button type="button" class="btn btn-success rounded-5 px-4 update_btn" hidden >Update</button>
+        <button type="reset" class="btn btn-info rounded-5 px-4 reset_btn">Reset All</button>
+        <button type="button" class="btn btn-danger rounded-5 px-4 cancle_btn" hidden >Cancle</button>
+
       </form>
     </section>
     <section>
       <h2 class="text-center pt-4">Added Information</h2>
+      <button type="button" class="btn btn-danger rounded-5 removeAll_btn ">Remaove All Data</button>
       <table class="table m-auto w-75">
         <thead>
           <tr class="text-center">
-            <!-- <th scope="col">#</th> -->
+            <th scope="col">#</th>
             <th scope="col">Site Name</th>
             <th scope="col">Site URL</th>
             <th scope="col">User Email</th>
             <th scope="col">User Password</th>
-
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody class="tableInfo">

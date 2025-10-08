@@ -1,3 +1,7 @@
 body{
     background-color: beige;
 }
+.removeAll_btn{
+    margin-left: 15%;
+    margin-bottom: 10px;
+}

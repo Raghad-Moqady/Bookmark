@@ -6,7 +6,7 @@ let sites = JSON.parse(localStorage.getItem("sites")) || [];
 //form btns
 const add_btn = document.querySelector(".add_btn");
 const update_btn = document.querySelector(".update_btn");
-const cancle_btn = document.querySelector(".cancle_btn");
+const cancel_btn = document.querySelector(".cancel_btn");
 const reset_btn= document.querySelector(".reset_btn");
 
 //table btns
@@ -76,7 +76,7 @@ const edit = (index) => {
   reset_btn.setAttribute("hidden",true);
 
   update_btn.removeAttribute("hidden");
-  cancle_btn.removeAttribute("hidden");
+  cancel_btn.removeAttribute("hidden");
 
   removeAll_btn.setAttribute("disabled", true);
   delete_btns.forEach((btn) => {
@@ -110,19 +110,19 @@ update_btn.addEventListener("click", () => {
   reset_btn.removeAttribute("hidden");
 
   update_btn.setAttribute("hidden", true);
-  cancle_btn.setAttribute("hidden", true);
+  cancel_btn.setAttribute("hidden", true);
 
   removeAll_btn.removeAttribute("disabled");
   displayData();
 });
 
-cancle_btn.addEventListener("click", () => {
+cancel_btn.addEventListener("click", () => {
   add_btn.removeAttribute("hidden");
   add_btn.removeAttribute("disabled");
   reset_btn.removeAttribute("hidden");
 
   update_btn.setAttribute("hidden", true);
-  cancle_btn.setAttribute("hidden", true);
+  cancel_btn.setAttribute("hidden", true);
 
   removeAll_btn.removeAttribute("disabled");
   delete_btns.forEach((btn) => {

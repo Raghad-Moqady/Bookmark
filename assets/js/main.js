@@ -38,21 +38,21 @@ const validateSiteName = () => {
     return true;
   }
 };
-const validateSiteURL = () => {
-  const regex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9\-]+(\.[a-zA-Z]{2,})(\/.*)?$/;
-  if (!regex.test(inputs[1].value)) {
-    inputs[1].classList.remove("is-valid");
-    inputs[1].classList.add("is-invalid");
-    siteURLErrorMsg.textContent =
-      "Enter a valid URL like https://example.com or www.example.org";
-    return false;
-  } else {
-    inputs[1].classList.remove("is-invalid");
-    inputs[1].classList.add("is-valid");
-    siteURLErrorMsg.textContent = "";
-    return true;
-  }
-};
+// const validateSiteURL = () => {
+//   const regex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9\-]+(\.[a-zA-Z]{2,})(\/.*)?$/;
+//   if (!regex.test(inputs[1].value)) {
+//     inputs[1].classList.remove("is-valid");
+//     inputs[1].classList.add("is-invalid");
+//     siteURLErrorMsg.textContent =
+//       "Enter a valid URL like https://example.com or www.example.org";
+//     return false;
+//   } else {
+//     inputs[1].classList.remove("is-invalid");
+//     inputs[1].classList.add("is-valid");
+//     siteURLErrorMsg.textContent = "";
+//     return true;
+//   }
+// };
 const validateUserEmail = () => {
   const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   if (!regex.test(inputs[2].value)) {
@@ -86,7 +86,7 @@ const validateUserPassword = () => {
 };
 
 inputs[0].addEventListener("input", validateSiteName);
-inputs[1].addEventListener("input", validateSiteURL);
+// inputs[1].addEventListener("input", validateSiteURL);
 inputs[2].addEventListener("input", validateUserEmail);
 inputs[3].addEventListener("input", validateUserPassword);
 
@@ -98,9 +98,9 @@ myForm.addEventListener("submit", (e) => {
   if (!validateSiteName()) {
     isValid = false;
   }
-  if (!validateSiteURL()) {
-    isValid = false;
-  }
+  // if (!validateSiteURL()) {
+  //   isValid = false;
+  // }
   if (!validateUserEmail()) {
     isValid = false;
   }
@@ -115,7 +115,7 @@ myForm.addEventListener("submit", (e) => {
       input.addEventListener("input", () => {
         if (
           validateSiteName() &&
-          validateSiteURL() &&
+          // validateSiteURL() &&
           validateUserEmail() &&
           validateUserPassword()
         ) {
@@ -149,7 +149,7 @@ const displayData = () => {
           <tr class="text-center">
             <td>${index}</td>
             <td>${site.siteName}</td>
-            <td>${site.siteURL}</td>
+            <td><a href=${site.siteURL}>${site.siteURL}</a></td>
             <td>${site.email}</td>
             <td>${site.password}</td>
             <td>
@@ -212,9 +212,9 @@ update_btn.addEventListener("click", () => {
   if (!validateSiteName()) {
     isValid = false;
   }
-  if (!validateSiteURL()) {
-    isValid = false;
-  }
+  // if (!validateSiteURL()) {
+  //   isValid = false;
+  // }
   if (!validateUserEmail()) {
     isValid = false;
   }
@@ -229,7 +229,7 @@ update_btn.addEventListener("click", () => {
       input.addEventListener("input", () => {
         if (
           validateSiteName() &&
-          validateSiteURL() &&
+          // validateSiteURL() &&
           validateUserEmail() &&
           validateUserPassword()
         ) {
@@ -310,13 +310,13 @@ const filterData=()=>{
   const filtered_sites=sites.filter((site)=>{
     return site.siteName.toLowerCase().includes(search_word);
   })
-  
+
   const result = filtered_sites.map((site, index) => {
       return `
           <tr class="text-center">
             <td>${index}</td>
             <td>${site.siteName}</td>
-            <td>${site.siteURL}</td>
+            <td><a href=${site.siteURL}>${site.siteURL}</a></td>
             <td>${site.email}</td>
             <td>${site.password}</td>
             <td>

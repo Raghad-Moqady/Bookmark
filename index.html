@@ -18,12 +18,14 @@
       <form class="m-auto w-50 myForm">
         <div class="form-floating mb-3">
           <input
+          autocomplete="off"
             type="text"
-            class="form-control rounded-5"
+            class="form-control rounded-5 "
             id="siteName"
             placeholder=""
           />
           <label for="siteName">Site Name</label>
+          <span class="text-danger siteNameErrorMsg"></span>
         </div>
         <div class="form-floating mb-3">
           <input
@@ -33,6 +35,8 @@
             placeholder=""
           />
           <label for="siteURL">Site URL</label>
+          <span class="text-danger siteURLErrorMsg"></span>
+
         </div>
         <div class="form-floating mb-3">
           <input
@@ -42,6 +46,8 @@
             placeholder=""
           />
           <label for="userEmail">User Email</label>
+          <span class="text-danger userEmailErrorMsg"></span>
+
         </div>
         <div class="form-floating mb-3">
           <input
@@ -51,6 +57,8 @@
             placeholder=""
           />
           <label for="userPassword">User Password</label>
+          <span class="text-danger userPasswordErrorMsg"></span>
+
         </div>
         <div class="form-floating mb-3">
           <input

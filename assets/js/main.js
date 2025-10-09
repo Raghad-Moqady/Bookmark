@@ -20,6 +20,9 @@ const siteURLErrorMsg = document.querySelector(".siteURLErrorMsg");
 const userEmailErrorMsg = document.querySelector(".userEmailErrorMsg");
 const userPasswordErrorMsg = document.querySelector(".userPasswordErrorMsg");
 
+//search
+const search_input= document.querySelector(".search_input");
+
 const validateSiteName = () => {
   const regex = /^[A-Za-z0-9\s\-_.]{3,50}$/;
   if (!regex.test(inputs[0].value)) {
@@ -300,3 +303,30 @@ reset_btn.addEventListener("click", () => {
 
   add_btn.removeAttribute("disabled");
 });
+
+// search: 
+const filterData=()=>{
+  const search_word =search_input.value.toLowerCase();
+  const filtered_sites=sites.filter((site)=>{
+    return site.siteName.toLowerCase().includes(search_word);
+  })
+  
+  const result = filtered_sites.map((site, index) => {
+      return `
+          <tr class="text-center">
+            <td>${index}</td>
+            <td>${site.siteName}</td>
+            <td>${site.siteURL}</td>
+            <td>${site.email}</td>
+            <td>${site.password}</td>
+            <td>
+            <button type="button" class="btn btn-danger rounded-5 delete_btn" onclick= deleteItem(${index})>Delete</button>
+            <button type="button" class="btn btn-warning rounded-5 edit_btn" onclick= edit(${index})>Edit</button>
+            </td>
+          </tr>`;
+    }).join(" ");
+  document.querySelector(".tableInfo").innerHTML = result;
+}
+
+search_input.addEventListener("input",filterData);
+

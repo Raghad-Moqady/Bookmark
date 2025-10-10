@@ -139,6 +139,13 @@ myForm.addEventListener("submit", (e) => {
     input.classList.remove("is-valid", "is-invalid");
   });
   displayData();
+  Swal.fire({
+  position: "center-center",
+  icon: "success",
+  title: "Added successfully",
+  showConfirmButton: false,
+  timer: 1700
+});
 });
 
 //Read
@@ -168,16 +175,46 @@ displayData();
 
 //Remove All
 removeAll_btn.addEventListener("click", () => {
+  Swal.fire({
+  title: "Do you want to remove All data?",
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: "Remove",
+  denyButtonText: `Dont Remove`
+}).then((result) => {
+  if (result.isConfirmed) {
   sites = [];
   localStorage.removeItem("sites");
   displayData();
+    Swal.fire("Done!", "", "success");
+  } 
+});
+
 });
 
 // Delete Item
 const deleteItem = (index) => {
-  sites.splice(index, 1);
+  Swal.fire({
+  title: "Are you sure?",
+  text: `You want to delete site # ${index}`,
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+ sites.splice(index, 1);
   localStorage.setItem("sites", JSON.stringify(sites));
   displayData();
+    Swal.fire({
+      title: "Deleted!",
+      text: `Your site # ${index} has been deleted.`,
+      icon: "success"
+    });
+  }
+});
+ 
 };
 
 // Update Item : 2 steps
@@ -260,10 +297,27 @@ update_btn.addEventListener("click", () => {
     input.classList.remove("is-valid", "is-invalid");
   });
   displayData();
+  Swal.fire({
+  position: "center-center",
+  icon: "success",
+  title: "updated successfully",
+  showConfirmButton: false,
+  timer: 1700
+});
 });
 
 cancel_btn.addEventListener("click", () => {
-  add_btn.removeAttribute("hidden");
+  Swal.fire({
+  title: "Are you sure?",
+  text: "You want to cancel the current modifications!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes,I agree!"
+}).then((result) => {
+  if (result.isConfirmed) {
+     add_btn.removeAttribute("hidden");
   add_btn.removeAttribute("disabled");
   reset_btn.removeAttribute("hidden");
 
@@ -288,8 +342,9 @@ cancel_btn.addEventListener("click", () => {
   userEmailErrorMsg.textContent = "";
   userPasswordErrorMsg.textContent = "";
 
-  update_btn.removeAttribute("disabled");
+  }
 });
+ });
 
 reset_btn.addEventListener("click", () => {
   inputs.forEach((input) => {
@@ -329,4 +384,7 @@ const filterData=()=>{
 }
 
 search_input.addEventListener("input",filterData);
+
+ 
+
 
